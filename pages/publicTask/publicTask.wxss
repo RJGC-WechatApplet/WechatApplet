@@ -12,5 +12,6 @@
   align-items: center;
 }
 .check{
-  
+  display: inline-block;
+  padding: 20rpx 50rpx;
 }

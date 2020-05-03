@@ -3,11 +3,10 @@
     <textarea class=".textInput" placeholder="请在这里输入任务描述……"></textarea>
   </view>
   <view class="checkView">
-    <checkbox-group>
-      <checkbox class="check">交易</checkbox>
-      <checkbox class="check">食堂</checkbox>
-      <checkbox class="check">外卖</checkbox>
-      <checkbox class="check">快递</checkbox>
-    </checkbox-group>
+    <radio-group>
+      <view class="check" wx:for="{{taskList}}" wx:key="{{index}}">
+        <radio value="{{item}}">{{item}}</radio>
+      </view>
+    </radio-group>
   </view>
 </view>
