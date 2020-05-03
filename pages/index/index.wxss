@@ -1,0 +1,14 @@
+
+/*首页导航*/
+.nav{
+  white-space: nowrap;
+  padding: 5rpx 0;
+}
+.nav_item{
+  padding: 20rpx 50rpx;
+  font-size: 45rpx;
+  display: inline-block;
+}
+.nav_item.active{
+  border-bottom: 5rpx solid aqua;
+}
