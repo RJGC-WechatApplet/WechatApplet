@@ -1,0 +1,21 @@
+
+.textView{
+  padding: 10rpx 25rpx;
+}
+.textInput{
+  display: flex;
+  padding: 20rpx 50rpx;
+  background-color: wheat;
+}
+.checkView{
+  padding: 10rpx 25rpx;
+  align-items: center;
+}
+.check{
+  display: inline-block;
+  padding: 20rpx 50rpx;
+}
+.buttonView{
+  display: inline-block;
+  padding: 50rpx 0 0 0;
+}
