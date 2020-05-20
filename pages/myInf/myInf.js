@@ -12,16 +12,20 @@ Page({
     userListInfo: [ {
       icon: '../../icons/public.png',
       text: '我的信息',
+      url: '../../pages/identityInfo/identityInfo'
     }, {
-        icon: '../../icons/public.png',
-        text: '我发布的任务',
-      }, {
-        icon: '../../icons/public.png',
-        text: '我接受的任务',
-      }, {
-        icon: '../../icons/public.png',
-        text: '常见问题'
-      }]
+      icon: '../../icons/public.png',
+      text: '我发布的任务',
+      url: '../../pages/pTaskInfo/pTaskInfo'
+    }, {
+      icon: '../../icons/public.png',
+      text: '我接受的任务',
+      url: '../../pages/cTaskInfo/cTaskInfo'
+    }, {
+      icon: '../../icons/public.png',
+      text: '常见问题',
+      url: '../../pages/identityInfo/identityInfo'
+    }]
   },
 
   //事件处理函数

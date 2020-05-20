@@ -4,11 +4,14 @@
     "pages/logs/logs",
     "pages/publicTask/publicTask",
     "pages/myInf/myInf",
-    "pages/taskInf/taskInf"
+    "pages/taskInf/taskInf",
+    "pages/identityInfo/identityInfo",
+    "pages/pTaskInfo/pTaskInfo",
+    "pages/cTaskInfo/cTaskInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#2E8B57",
     "navigationBarTitleText": "武大小帮手",
     "navigationBarTextStyle": "black"
   },

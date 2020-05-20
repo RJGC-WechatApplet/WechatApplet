@@ -1,5 +1,12 @@
-<view class="main">
-  <!--首页导航-->
+<view class="container">
+  <!--搜索框-->
+  <view class="search_input">
+    <navigator class="nav_search" url="../logs/logs">
+      搜索
+    </navigator>
+  </view>
+
+    <!--首页导航-->
   <scroll-view class="nav" scroll-x>
     <view bindtap="activeNav" data-index="{{index}}"
       class="nav_item {{index===currentIndexNav?'active':''}}"
@@ -7,4 +14,13 @@
       {{item}}
     </view>
   </scroll-view>
+
+  <!--轮播图-->
+  <view class="index_swiper">
+    <swiper autoplay interval="2500" circular="{{true}}">
+      <swiper-item><image mode="heightFix" src="../../image/普通.jpg"></image></swiper-item>
+      <swiper-item><image mode="heightFix" src="../../image/樱花.jpeg"></image></swiper-item>
+      <swiper-item><image mode="heightFix" src="../../image/秋天.jpg"></image></swiper-item>
+    </swiper>
+  </view>
 </view>

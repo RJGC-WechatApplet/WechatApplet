@@ -1,3 +1,27 @@
+page{
+  background-color: honeydew;
+}
+/*搜索框*/
+.search_input{
+  background-color: #2E8B57;
+  height: 90rpx;
+  padding: 10rpx;
+}
+.nav_search{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 15rpx;
+}
+
+/*轮播图*/
+.index_swiper{
+  padding: 10rpx;
+  width:100%;
+  height: 100rpx;
+}
 
 /*首页导航*/
 .nav{
@@ -10,5 +34,5 @@
   display: inline-block;
 }
 .nav_item.active{
-  border-bottom: 5rpx solid aqua;
+  border-bottom: 7rpx solid red;
 }

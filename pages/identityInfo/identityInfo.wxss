@@ -2,27 +2,11 @@ page{
   background-color: honeydew;
   padding: 0 20rpx;
 }
+
 /* 水平显示 */
 .flex-wrp-row{
   display: flex;
   flex-direction: row;
-}
-/*任务内容输入框*/
-.inputView{
-  display: flex;
-  padding: 20rpx 0;
-  justify-content: center;
-  align-items: center;
-}
-.textInput{
-  display: flex;
-  padding: 20rpx 50rpx;
-  background-color: #F5F5F5;
-  border-radius: 15rpx;
-  border-top: 2px solid #dadada;
-  border-left: 2px solid #dadada;
-  border-right: 2px solid #dadada;
-  border-bottom: 2px solid #dadada;
 }
 
 /*任务选择框*/
@@ -41,10 +25,10 @@ page{
   align-items: center;
 }
 
-/* 金额输入框 */
-.moneyInput{
+/* 输入框 */
+.Input{
   height: 100%;
-  width: 60rpx;
+  width: 250rpx;
   align-items: center;
   text-align: right;
 }
@@ -55,7 +39,8 @@ page{
   flex-direction: column;
   justify-content: center;
   padding-top: 65rpx;
+  background-color: aqua;
 }
 .bt{
-  padding-bottom: 50rpx;
+  padding-bottom: 30rpx;
 }

@@ -1,0 +1,64 @@
+<view class="container">
+  <!--姓名输入框-->
+  <view class="pickerView flex-wrp-row">
+    <view class="pickerTable flex-wrp-row">请输入你的姓名：</view>
+    <view class="pickerPicker flex-wrp-row">
+      <input class="Input" placeholder=". . . . " maxlength="7" value="{{name}}"></input>
+    </view>
+  </view>
+  <!--学号输入框-->
+  <view class="pickerView flex-wrp-row">
+    <view class="pickerTable flex-wrp-row">请输入你的学号：</view>
+    <view class="pickerPicker flex-wrp-row">
+      <input class="Input" placeholder=". . . . " maxlength="13" value="{{num}}"></input>
+    </view>
+  </view>
+  <!--姓别选择框-->
+  <picker range="{{genderList}}" value="{{index}}" bindchange="genderTypeChange">
+    <view class="pickerView flex-wrp-row"> 
+      <view class="pickerTable flex-wrp-row">请选择性别:</view>
+      <view class="pickerPicker flex-wrp-row">
+        <text>{{gender}}</text>
+      </view>  
+    </view>
+  </picker>
+  <!--学院选择框-->
+  <picker range="{{academyList}}" value="{{index}}" bindchange="academyTypeChange">
+    <view class="pickerView flex-wrp-row"> 
+      <view class="pickerTable flex-wrp-row">请选择学部:</view>
+      <view class="pickerPicker flex-wrp-row">
+        <text>{{academy}}</text>
+      </view>  
+    </view>
+  </picker>
+  <!--住址输入框-->
+  <view class="pickerView flex-wrp-row">
+    <view class="pickerTable flex-wrp-row">请输入你的住址：</view>
+    <view class="pickerPicker flex-wrp-row">
+      <input class="Input" placeholder=". . . . " maxlength="20" value="{{address}}"></input>
+    </view>
+  </view>
+  <!--联系方式输入框（QQ）-->
+  <view class="pickerView flex-wrp-row">
+    <view class="pickerTable flex-wrp-row">请输入你的QQ：</view>
+    <view class="pickerPicker flex-wrp-row">
+      <input class="Input" placeholder=". . . . " maxlength="12" value="{{QQ}}"></input>
+    </view>
+  </view>
+  <!--联系方式输入框（手机）-->
+  <view class="pickerView flex-wrp-row">
+    <view class="pickerTable flex-wrp-row">请输入你的手机号：</view>
+    <view class="pickerPicker flex-wrp-row">
+      <input class="Input" placeholder=". . . . " maxlength="11" value="{{telephone}}"></input>
+    </view>
+  </view>
+  <!--按钮-->
+  <view class="buttonView">
+    <view class="bt">
+     <button type="primary">提交</button>
+    </view>
+    <view class="bt">
+      <button type="primary" plain="true" bindtap="clearValue">清空</button>
+    </view>
+  </view>
+</view>

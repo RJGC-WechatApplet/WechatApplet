@@ -1,49 +1,62 @@
-// pages/publicTask/publicTask.js
+// pages/identityInfo/identityInfo.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    taskList:["交易","食堂","外卖","快递"],
-    taskType:">",
-    taskTime:">",
-    textareaValue:"",
-    inputValue:""
+    genderList:["男","女"],
+    academyList:["文理学部","信息学部","工学部","医学部"],
+    name:"",
+    num:"",
+    gender:">",
+    academy:">",
+    address:"",
+    QQ:"",
+    telephone:""
   },
 
   /**
-   * 时间选择函数
+   * 性别选择函数
    */
-  bindTimeChange:function(e){
-    this.setData({
-      taskTime: e.detail.value
-    })
-  },
-
-  /**
-   * 类型选择函数
-   */
-  bindTypeChange:function(e){
+  genderTypeChange:function(e){
     switch(e.detail.value){
       case "0":
         this.setData({
-          taskType: "交易"
+          gender: "男"
         })
         break;
       case "1":
         this.setData({
-          taskType: "食堂"
+          gender: "女"
+        })
+        break;
+    }
+  },
+
+  /**
+   * 学部选择函数
+   */
+  academyTypeChange:function(e){
+    switch(e.detail.value){
+      case "0":
+        this.setData({
+          academy: "文理学部"
+        })
+        break;
+      case "1":
+        this.setData({
+          academy: "信息学部"
         })
         break;
       case "2":
         this.setData({
-          taskType: "外卖"
+          academy: "工学部"
         })
         break;
       case "3":
         this.setData({
-          taskType: "快递"
+          academy: "医学部"
         })
         break;
     }
@@ -54,10 +67,13 @@ Page({
    */
   clearValue:function(){
     this.setData({
-      taskType:">",
-      taskTime:">",
-      textareaValue:"",
-      inputValue:""
+      name:"",
+      num:"",
+      gender:">",
+      academy:">",
+      address:"",
+      QQ:"",
+      telephone:""
     })
   },
 
