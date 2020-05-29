@@ -1,0 +1,107 @@
+page{
+  background-color: honeydew;
+}
+/*搜索框*/
+.search_input{
+  background-color: #2E8B57;
+  height: 90rpx;
+  padding: 10rpx;
+}
+.nav_search{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 15rpx;
+}
+
+/*轮播图*/
+.index_swiper{
+  padding: 10rpx;
+  width:100%;
+  height: 320rpx;
+}
+
+/*首页导航*/
+.nav{
+  white-space: nowrap;
+  padding: 5rpx 0;
+}
+.nav_item{
+  padding: 20rpx 50rpx;
+  font-size: 45rpx;
+  display: inline-block;
+}
+.nav_item.active{
+  border-bottom: 7rpx solid #2E8B57;
+}
+image{
+  width: 100%;
+  height: 100%;
+}
+/* 水平显示 */
+.flex-wrp-row{
+  display: flex;
+  flex-direction: row;
+}
+/* 垂直显示 */
+.flex-wrp-column{
+  display: flex;
+  flex-direction: column;
+}
+/* 任务列表 */
+.task{
+  margin: 20rpx;
+  position: relative;
+  height: 300rpx;
+  border-top: 2px solid #dadada;
+  border-left: 2px solid #dadada;
+  border-right: 2px solid #dadada;
+  border-bottom: 2px solid #dadada;
+  border-radius: 20rpx;
+  background-color: mintcream;
+}
+/* 头像内容框 */
+.photoContent{
+  width: 100%;
+  height: 200rpx;
+  padding: 25rpx;
+  position: relative;
+}
+.photoview{
+  margin-left: 15rpx;
+  flex: 1;
+  align-items: center;
+}
+.contentview{
+  height: 100%;
+  width: 500rpx;
+  padding: 10rpx 25rpx;
+  align-items: center;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+/* 头像 */
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin-top: 15rpx;
+  border-radius: 50%;
+}
+/* 姓名时间类型金额 */
+.othercontent{
+  width: 100%;
+  position: relative;
+  /* padding: 25rpx 40rpx; */
+  padding-top: 20rpx;
+  padding-left: 5rpx;
+}
+.other{
+  flex: 0.25;
+  text-align: center;
+  /* margin-right: 50rpx; */
+}

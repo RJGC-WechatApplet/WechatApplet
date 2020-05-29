@@ -1,0 +1,45 @@
+page{
+  background-color: honeydew;
+  padding: 0 20rpx;
+}
+
+/* 水平显示 */
+.flex-wrp-row{
+  display: flex;
+  flex-direction: row;
+}
+
+/*任务选择框*/
+.pickerView{
+  height: 130rpx;
+  padding: 25rpx;
+  position: relative;
+  border-bottom: 1px solid #dadada;
+}
+.pickerTable{
+  flex: 1;
+  align-items: center;
+}
+.pickerPicker{
+  margin-right: 20rpx;
+  align-items: center;
+}
+
+/* 输入框 */
+.Input{
+  height: 100%;
+  width: 250rpx;
+  align-items: center;
+  text-align: right;
+}
+
+/*任务按钮*/
+.buttonView{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 65rpx;
+}
+.bt{
+  padding-bottom: 30rpx;
+}

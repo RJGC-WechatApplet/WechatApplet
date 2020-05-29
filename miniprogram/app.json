@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/publicTask/publicTask",
+    "pages/myInf/myInf",
+    "pages/taskInf/taskInf",
+    "pages/taskInf2/taskInf2",
+    "pages/taskInf3/taskInf3",
+    "pages/identityInfo/identityInfo",
+    "pages/pTaskInfo/pTaskInfo",
+    "pages/cTaskInfo/cTaskInfo",
+    "pages/kefu/kefu"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2E8B57",
+    "navigationBarTitleText": "武大小帮手",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "任务广场",
+      "iconPath": "icons/index.png",
+      "selectedIconPath": "icons/index.png"
+    },
+    {
+      "pagePath": "pages/publicTask/publicTask",
+      "text": "发布任务",
+      "iconPath": "icons/public.png",
+      "selectedIconPath": "icons/public.png"
+    },
+    {
+      "pagePath": "pages/myInf/myInf",
+      "text": "我的信息",
+      "iconPath": "icons/my.png",
+      "selectedIconPath": "icons/my.png"
+    }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

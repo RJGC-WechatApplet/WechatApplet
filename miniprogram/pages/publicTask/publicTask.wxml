@@ -1,0 +1,47 @@
+<view class="container">
+  <form bindsubmit="btnSub">
+    <!--任务内容输入框-->
+    <view class="inputView">
+      <textarea name="content" class="textInput" placeholder="请在这里输入任务描述……" maxlength="200">
+      </textarea>
+    </view>
+
+    <!--任务类型选择框-->
+    <picker name="type" range="{{taskList}}" bindchange="bindTypeChange" value="{{taskType}}">
+      <view class="pickerView flex-wrp-row"> 
+        <view class="pickerTable flex-wrp-row">请选择任务类型:</view>
+        <view class="pickerPicker flex-wrp-row">
+          <text>{{taskType}}</text>
+        </view>  
+      </view>
+    </picker>
+
+    <!--任务时间选择框-->
+    <picker name="time" mode="time" bindchange="bindTimeChange" value="{{taskTime}}">
+      <view class="pickerView flex-wrp-row"> 
+        <view class="pickerTable flex-wrp-row">请选择任务截止时间:</view>
+        <view class="pickerPicker flex-wrp-row">
+          <text>{{taskTime}}</text>
+        </view>  
+      </view>
+    </picker>
+    
+    <!--任务金额-->
+    <view class="pickerView flex-wrp-row">
+      <view class="pickerTable flex-wrp-row">请输入任务金额：</view>
+      <view class="pickerPicker flex-wrp-row">
+        <input name="money" class="moneyInput" placeholder=". . ." maxlength="3"></input>
+      </view>
+      <view class="pickerPicker flex-wrp-row">RMB</view>
+    </view>
+    <!--按钮-->
+    <view class="buttonView">
+      <view class="bt">
+      <button type="primary" form-type="submit" open-type="getUserInfo" bindgetuserinfo="authorize">提交</button>
+      </view>
+      <view class="bt">
+        <button type="primary" plain="true" form-type="reset" bindtap="clearValue">清空</button>
+      </view>
+    </view>
+  </form>
+</view>

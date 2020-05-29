@@ -1,0 +1,64 @@
+<view class="container">
+  <!-- 头像框 -->
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{task.nickPhoto}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{task.nickName}}</text>
+  </view>
+  <!--任务内容显示区域-->
+  <view style="padding: 0 20rpx">
+    <view class="pickerView flex-wrp-row">
+      <view class="pickerTable flex-wrp-row">任务详情：</view>
+      <view class="pickerPicker flex-wrp-row">{{task.content}}</view>
+    </view>
+      <view class="pickerView flex-wrp-row">
+      <view class="pickerTable flex-wrp-row">任务类型：</view>
+      <view class="pickerPicker flex-wrp-row">{{task.type}}</view>
+    </view>
+    <view class="pickerView flex-wrp-row">
+      <view class="pickerTable flex-wrp-row">任务金额：</view>
+      <view class="pickerPicker flex-wrp-row">{{task.money}}</view>
+    </view>
+    <view class="pickerView flex-wrp-row">
+      <view class="pickerTable flex-wrp-row">任务时间：</view>
+      <view class="pickerPicker flex-wrp-row">{{task.time}}</view>
+    </view>
+    <view class="pickerView flex-wrp-row">
+      <view class="pickerTable flex-wrp-row">任务状态：</view>
+      <view wx:if="{{task.state==1}}" class="pickerPicker flex-wrp-row">未接受</view>
+      <view wx:elif="{{task.state==2}}" class="pickerPicker flex-wrp-row">进行中</view>
+      <view wx:else class="pickerPicker flex-wrp-row">已完成</view>
+    </view>
+    <view wx:if="{{task.state!=1}}" class="pickerView flex-wrp-row">
+      <view class="pickerTable flex-wrp-row">接收人：</view>
+      <view class="pickerPicker flex-wrp-row">{{rcId.name}}</view>
+    </view>
+    <view wx:if="{{task.state!=1}}" class="pickerView flex-wrp-row">
+      <view class="pickerTable flex-wrp-row">联系QQ：</view>
+      <view class="pickerPicker flex-wrp-row">{{rcId.QQ}}</view>
+    </view>
+    <view wx:if="{{task.state!=1}}" class="pickerView flex-wrp-row">
+      <view class="pickerTable flex-wrp-row">联系电话：</view>
+      <view class="pickerPicker flex-wrp-row">{{rcId.telephone}}</view>
+    </view>
+    <view wx:if="{{task.state==3}}" class="pickerView flex-wrp-row">
+      <view class="pickerTable flex-wrp-row">您的评分：</view>
+      <view class="pickerPicker flex-wrp-row">{{task.level}}分</view>
+    </view>
+    <!--任务类型选择框-->
+    <picker name="type" range="{{levelList}}" bindchange="bindTypeChange" value="{{level}}">
+      <view wx:if="{{task.state==2}}" class="pickerView flex-wrp-row"> 
+        <view class="pickerTable flex-wrp-row">请评分:</view>
+        <view class="pickerPicker flex-wrp-row">
+          <text>{{level}}</text>
+        </view>  
+      </view>
+    </picker>
+  </view>
+  <!--按钮-->
+    <view wx:if="{{task.state!=2}}" style="padding: 65rpx 0">
+      <button type="primary" bindtap="delTask">删除任务</button>
+    </view>
+    <view wx:else style="padding: 65rpx 0">
+      <button type="primary" bindtap="changeState">确认完成</button>
+    </view>
+</view>

@@ -1,0 +1,34 @@
+<view class="container">
+  <!-- 头像框 -->
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{task.nickPhoto}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{task.nickName}}</text>
+  </view>
+  <!--任务内容显示区域-->
+  <view style="padding: 0 20rpx">
+    <view class="pickerView flex-wrp-row">
+      <view class="pickerTable flex-wrp-row">任务详情：</view>
+      <view class="pickerPicker flex-wrp-row">{{task.content}}</view>
+    </view>
+      <view class="pickerView flex-wrp-row">
+      <view class="pickerTable flex-wrp-row">任务类型：</view>
+      <view class="pickerPicker flex-wrp-row">{{task.type}}</view>
+    </view>
+    <view class="pickerView flex-wrp-row">
+      <view class="pickerTable flex-wrp-row">任务金额：</view>
+      <view class="pickerPicker flex-wrp-row">{{task.money}}</view>
+    </view>
+    <view class="pickerView flex-wrp-row">
+      <view class="pickerTable flex-wrp-row">任务时间：</view>
+      <view class="pickerPicker flex-wrp-row">{{task.time}}</view>
+    </view>
+    <view class="pickerView flex-wrp-row">
+      <view class="pickerTable flex-wrp-row">任务地址：</view>
+      <view class="pickerPicker flex-wrp-row">{{rcId.academyPicker}} {{rcId.address}}</view>
+    </view>
+  </view>
+  <!--按钮-->
+    <view style="padding: 65rpx 0">
+      <button type="primary" bindtap="recTask">接受任务</button>
+    </view>
+</view>

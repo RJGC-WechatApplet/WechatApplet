@@ -1,0 +1,43 @@
+<view class="container">
+  <!--搜索框-->
+  <!-- <view class="search_input">
+    <navigator class="nav_search" url="../search/search">
+      搜索
+    </navigator>
+  </view> -->
+
+    <!--首页导航-->
+  <scroll-view class="nav" scroll-x>
+    <view bindtap="activeNav" data-index="{{index}}"
+      class="nav_item {{index===currentIndexNav?'active':''}}"
+      wx:for="{{taskList}}" wx:key="{{index}}">
+      {{item}}
+    </view>
+  </scroll-view>
+
+  <!--轮播图-->
+  <view class="index_swiper">
+    <swiper autoplay interval="2500" circular="{{true}}">
+      <swiper-item><image src="../../image/普通.jpg"></image></swiper-item>
+      <swiper-item><image src="../../image/樱花.jpeg"></image></swiper-item>
+      <swiper-item><image src="../../image/秋天.jpg"></image></swiper-item>
+    </swiper>
+  </view>
+
+  <!--任务显示区域-->
+  <view wx:for="{{cloudTaskList}}" wx:key="index" data-index="{{index}}" bindtap="activeNav2" class="task flex-wrp-column">
+    <view class="flex-wrp-row photoContent" data-index="{{index}}">
+      <view class="photoview" data-index="{{index}}"><image class="userinfo-avatar" src="{{item.nickPhoto}}" background-size="cover" data-index="{{index}}"></image></view>
+      <view class="contentview" data-index="{{index}}">{{item.content}}</view>
+    </view>
+    <view class="othercontent flex-wrp-row" data-index="{{index}}">
+      <view class="other" data-index="{{index}}">{{item.nickName}}</view>
+      <view class="other" data-index="{{index}}">类型:{{item.type}}</view>
+      <view class="other" data-index="{{index}}">金额:{{item.money}}</view>
+      <view class="other" data-index="{{index}}">时间:{{item.time}}</view>
+    </view>
+  </view>
+  <!-- <view>
+    <button type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+  </view> -->
+</view>

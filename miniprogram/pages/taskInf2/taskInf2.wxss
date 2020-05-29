@@ -1,0 +1,45 @@
+page{
+  background-color: honeydew;
+}
+.userinfo {
+  margin: 20rpx;
+  display: flex;
+  flex-direction: column;
+  padding: 50rpx 0;
+  align-items: center;
+  background: mintcream;
+  border-top: 2px solid #dadada;
+  border-left: 2px solid #dadada;
+  border-right: 2px solid #dadada;
+  border-bottom: 2px solid #dadada;
+  border-radius: 20rpx;
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.userinfo-nickname {
+  color: #aaa;
+}
+/* 水平显示 */
+.flex-wrp-row{
+  display: flex;
+  flex-direction: row;
+}
+/*任务选择框*/
+.pickerView{
+  height: 130rpx;
+  padding: 25rpx;
+  position: relative;
+  border-bottom: 1px solid #dadada;
+}
+.pickerTable{
+  flex: 1;
+  align-items: center;
+}
+.pickerPicker{
+  margin-right: 20rpx;
+  align-items: center;
+}

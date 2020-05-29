@@ -1,0 +1,19 @@
+<view>
+  <!--任务显示区域-->
+  <view wx:for="{{cloudTaskList}}" wx:key="index" data-index="{{index}}" bindtap="activeNav" class="task flex-wrp-column">
+    <view class="flex-wrp-row photoContent" data-index="{{index}}">
+      <view class="photoview" data-index="{{index}}"><image class="userinfo-avatar" src="{{item.nickPhoto}}" background-size="cover" data-index="{{index}}"></image></view>
+      <view class="contentview" data-index="{{index}}">{{item.content}}</view>
+    </view>
+    <view class="othercontent flex-wrp-row" data-index="{{index}}">
+      <view class="other" data-index="{{index}}">{{item.nickName}}</view>
+      <view class="other" data-index="{{index}}">类型:{{item.type}}</view>
+      <view class="other" data-index="{{index}}">金额:{{item.money}}</view>
+      <view class="other" data-index="{{index}}">时间:{{item.time}}</view>
+    </view>
+  </view>
+  <!-- 占位信息 -->
+  <view wx:if="{{cloudTaskList==''}}">
+      <view>还未接受任务</view>
+  </view>
+</view>
