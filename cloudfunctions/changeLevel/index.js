@@ -9,11 +9,10 @@ const _ = db.command
 exports.main = async (event, context) => {
   try {
     return await db.collection('identityList').where({
-      nickName: _.eq(event.nickName)
-    })
-    .update({
+      nickName:_.eq(event.nickName)
+    }) .update({
       data: {
-        level:event.point
+        level: event.point
       },
     })
   } catch(e) {

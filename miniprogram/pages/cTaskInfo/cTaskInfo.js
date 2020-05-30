@@ -29,7 +29,7 @@ Page({
   getData(){
     db.collection("tasklist").where({
       recipient:_.eq(app.globalData.userInfo.nickName)
-    }).limit(10).orderBy('createTime','desc')
+    }).orderBy('createTime','desc')
     .get()
     .then(res=>{
       console.log(res)

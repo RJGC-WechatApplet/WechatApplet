@@ -16,6 +16,7 @@ Page({
     address:"",
     QQ:"",
     telephone:"",
+    level:'',
     exist:0 //身份是否存在
   },
 
@@ -129,23 +130,18 @@ Page({
       }
       point=point/res.data.length
       this.setData({
-        level:point
+        level:point.toString()
+      })
+      wx.cloud.callFunction({
+        name:"changeLevel",
+        data:{
+          nickName:app.globalData.userInfo.nickName,
+          point:point
+        }
+      }).then(res=>{
+        console.log(res)
       })
     })
-    wx.cloud.callFunction({
-      name:"changeLevel",
-      data:{
-        nickName:app.globalData.userInfo.nickName,
-        point:point
-      }
-    }).then(res=>{
-      console.log(res)
-    })
-  },
-
-  // 提交评价分
-  changeLevel(){
-
   },
 
   // 获取身份信息
@@ -175,7 +171,6 @@ Page({
    */
   onLoad: function (options) {
     this.calLevel()
-    this.changeLevel()
     this.getIdentity()
   },
 

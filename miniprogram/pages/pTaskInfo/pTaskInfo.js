@@ -31,7 +31,7 @@ Page({
       nickName:_.eq(app.globalData.userInfo.nickName)
     }).where({
       state:_.neq(4)
-    }).limit(10).orderBy('createTime','desc')
+    }).orderBy('createTime','desc')
     .get()
     .then(res=>{
       console.log(res)

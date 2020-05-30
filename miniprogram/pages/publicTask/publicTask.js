@@ -56,6 +56,14 @@ Page({
       })
     }else{
       var {content, type, time, money}=res.detail.value
+      if(content==''|type=='>'|time=='>'|money=='')
+      {
+        wx.showToast({
+          icon:"none",
+          title: '请输入完整任务内容！',
+          duration: 1000
+        })
+      }else{
       wx.showModal({
         cancelColor: 'cancelColor',
         title: '提交任务',
@@ -86,6 +94,7 @@ Page({
           }
         }
       })
+    }
     }
   },
 
