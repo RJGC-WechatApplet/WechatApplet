@@ -13,13 +13,7 @@ exports.main = async (event, context) => {
     })
     .update({
       data: {
-        name:event.name,
-        num:event.num,
-        genderPicker:event.genderPicker,
-        academyPicker:event.academyPicker,
-        address:event.address,
-        QQ:event.QQ,
-        telephone:event.telephone
+        level:event.point
       },
     })
   } catch(e) {

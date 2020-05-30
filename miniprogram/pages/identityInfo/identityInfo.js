@@ -16,7 +16,6 @@ Page({
     address:"",
     QQ:"",
     telephone:"",
-    point:0.0,
     exist:0 //身份是否存在
   },
 
@@ -57,9 +56,15 @@ Page({
    */
   btnSub(res){
     var {name, num, genderPicker, academyPicker, address, QQ, telephone}=res.detail.value
-    console.log(res)
-    console.log(this.data.exist)
-    let that =this
+    if(name==''|num==''|genderPicker=='>'|academyPicker=='>'|address==''|QQ==''|telephone=='')
+    {
+      wx.showToast({
+        icon:"none",
+        title: '请补全信息',
+        duration: 1000
+      })
+    }else{
+      let that =this
     wx.showModal({
       cancelColor: 'cancelColor',
       title: '提交身份信息',
@@ -69,6 +74,7 @@ Page({
            //点击取消,默认隐藏弹框
         } else {
            //点击确定
+           app.globalData.hasIdentity=true
            if(that.data.exist==0){
             db.collection("identityList").add({
               data:{
@@ -79,8 +85,7 @@ Page({
                 academyPicker:academyPicker,
                 address:address,
                 QQ:QQ,
-                telephone:telephone,
-                level:''
+                telephone:telephone
               }
             })
           }else{           
@@ -105,35 +110,43 @@ Page({
         }
       }
     })
+    }   
   },
 
   // 计算评价分
-  changeLevel(){
+  calLevel(){
+    var point = 0.0
     db.collection("tasklist")
     .where({
       nickName:_.eq(app.globalData.userInfo.nickName),
-      state:_.eq(3).or(_.eq(4))
+      state:_.eq(3).or(_.eq(4)),
+      level:_.neq('')
     }).get()
     .then(res=>{
-      var point = 0.0
+      console.log(res)
       for(var i=0;i<res.data.length;i++){
         point=point + parseFloat(res.data[i].level)
       }
       point=point/res.data.length
       this.setData({
-        point:point
+        level:point
       })
-      console.log(this.data.point)
     })
     wx.cloud.callFunction({
-      name:"levelChange",
+      name:"changeLevel",
       data:{
         nickName:app.globalData.userInfo.nickName,
-        level:this.data.point.toString()
+        point:point
       }
+    }).then(res=>{
+      console.log(res)
     })
   },
 
+  // 提交评价分
+  changeLevel(){
+
+  },
 
   // 获取身份信息
   getIdentity(){
@@ -151,7 +164,6 @@ Page({
           address:res.data[0].address,
           QQ:res.data[0].QQ,
           telephone:res.data[0].telephone,
-          level:res.data[0].level,
           exist:1
         })
       }
@@ -162,6 +174,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.calLevel()
     this.changeLevel()
     this.getIdentity()
   },

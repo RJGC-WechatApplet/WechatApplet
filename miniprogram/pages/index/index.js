@@ -10,10 +10,11 @@ Page({
   data: {
     // 被选中的首页导航索引
     currentIndexNav:0,
+    currentIndexNav2:0,
     // 任务广场选项
     taskList:["交易","食堂","外卖","快递"],
     cloudTaskList:[],
-    time:""
+    isHidden:false
   },
 
   // 点击首页导航按钮
@@ -25,16 +26,16 @@ Page({
     this.getData()
   },
 
-    // 获取点击的框
-    activeNav2:function(e){
-      this.setData({
-        currentIndexNav:e.target.dataset.index
-      })
-      wx.setStorageSync('mpTask', this.data)
-      wx.navigateTo({
-        url: '../taskInf3/taskInf3',
-      })
-    },
+  // 获取点击的框
+  activeNav2:function(e){
+    this.setData({
+      currentIndexNav2:e.target.dataset.index
+    })
+    wx.setStorageSync('mpTask', this.data)
+    wx.navigateTo({
+      url: '../taskInf3/taskInf3',
+    })
+  },
 
   // 获取数据
   getData(){
@@ -56,21 +57,54 @@ Page({
   // 授权按钮
   getUserInfo:function(e){
     app.globalData.userInfo=e.detail.userInfo
+    this.setData({
+      isHidden:true
+    })
     console.log(app.globalData.userInfo)
+  },
+
+  // 确认个人信息
+  judegIdentity(){
+    db.collection("identityList").where({
+      nickName:_.eq(app.globalData.userInfo.nickName)
+    })
+    .get().then(res=>{
+      if(res.data!=''){
+        app.globalData.hasIdentity=true
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    //判断是用户是否绑定了
+    if (app.globalData.isHidden) {
+      this.setData({
+        isHidden: true
+      });
+      this.judegIdentity()
+    } else {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = userInfo => {
+        if (userInfo != '') {
+          this.setData({
+            isHidden: true
+          });
+          this.judegIdentity()
+        }
+      }
+    }
+    console.log(app.globalData.isHidden)
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**

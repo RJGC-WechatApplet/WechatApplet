@@ -47,36 +47,46 @@ Page({
    * 提交表单
    */
   btnSub(res){
-    var {content, type, time, money}=res.detail.value
-    wx.showModal({
-      cancelColor: 'cancelColor',
-      title: '提交任务',
-      content: '确定要提交吗？',
-      success: function (res) {
-        if (res.cancel) {
-           //点击取消,默认隐藏弹框
-        } else {
-           //点击确定
-           db.collection("tasklist").add({
-            data:{
-              content:content,
-              type:type,
-              time:time,
-              money:money,
-              nickName:app.globalData.userInfo.nickName,
-              nickPhoto:app.globalData.userInfo.avatarUrl,
-              state:1,
-              recipient:"",
-              createTime:db.serverDate()
-            }
-          })
-          wx.showToast({
-            title: '提交成功',
-            duration: 1000
-          })
+    if(!app.globalData.hasIdentity)
+    {
+      wx.showToast({
+        icon:"none",
+        title: '请先填写身份信息！',
+        duration: 1000
+      })
+    }else{
+      var {content, type, time, money}=res.detail.value
+      wx.showModal({
+        cancelColor: 'cancelColor',
+        title: '提交任务',
+        content: '确定要提交吗？',
+        success: function (res) {
+          if (res.cancel) {
+             //点击取消,默认隐藏弹框
+          } else {
+             //点击确定
+             db.collection("tasklist").add({
+              data:{
+                content:content,
+                type:type,
+                time:time,
+                money:money,
+                nickName:app.globalData.userInfo.nickName,
+                nickPhoto:app.globalData.userInfo.avatarUrl,
+                state:1,
+                recipient:"",
+                level:"",
+                createTime:db.serverDate()
+              }
+            })
+            wx.showToast({
+              title: '提交成功',
+              duration: 1000
+            })
+          }
         }
-      }
-    })
+      })
+    }
   },
 
   /**

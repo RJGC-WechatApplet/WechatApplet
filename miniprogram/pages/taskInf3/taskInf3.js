@@ -15,7 +15,15 @@ Page({
   //接受任务
   recTask(){
     console.log(this.data.task)
-    let that=this
+    if(!app.globalData.hasIdentity)
+    {
+      wx.showToast({
+        icon:"none",
+        title: '请先填写身份信息！',
+        duration: 1000
+      })
+    }else{
+      let that=this
     wx.showModal({
       cancelColor: 'cancelColor',
       title: '接受任务',
@@ -43,6 +51,7 @@ Page({
         }
       }
     })
+    }
   },
 
     //获得发布人信息
@@ -65,7 +74,7 @@ Page({
   onLoad: function (options) {
     var task = wx.getStorageSync('mpTask')
     this.setData({
-      task:task.cloudTaskList[task.currentIndexNav]
+      task:task.cloudTaskList[task.currentIndexNav2]
     })
     this.getIdentity()
     wx.clearStorageSync('mpTask')

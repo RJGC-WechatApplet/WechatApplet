@@ -23,7 +23,7 @@ Page({
       url: '../cTaskInfo/cTaskInfo'
     }, {
       icon: '../../icons/public.png',
-      text: '常见问题',
+      text: '投诉热线',
       url: '../kefu/kefu'
     }]
   },
